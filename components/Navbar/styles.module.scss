@@ -1,0 +1,35 @@
+@import "../../styles//base.module.scss";
+
+.navbar {
+  height: 4rem;
+  background-color: $color_black;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: $color_white;
+  justify-content: space-between;
+  font-size: small;
+  @include media__tablet {
+    font-size: large;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+  padding-right: 1rem;
+
+  font-size: small;
+  &-item {
+    cursor: pointer;
+    height: 100%;
+    &:hover {
+      color: $color_secondary;
+    }
+    @include media__tablet {
+      font-size: large;
+      padding-right: 3rem;
+    }
+  }
+}

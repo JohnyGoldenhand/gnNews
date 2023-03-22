@@ -1,0 +1,13 @@
+//Collors
+$color_black: #000000;
+$color_white: #fff;
+$color__primary: #19a7ce;
+$color_secondary: #146c94;
+
+//Media queries
+
+@mixin media__tablet {
+  @media (min-width: 961px) {
+    @content;
+  }
+}

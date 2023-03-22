@@ -1,0 +1,19 @@
+@import "../../styles/base.module.scss";
+.sidebar {
+  background-color: red;
+  width: 8rem;
+  @include media__tablet {
+    width: 15rem;
+  }
+
+  &__wrapped {
+    width: 0;
+  }
+
+  transition: all 0.3s ease-in-out;
+}
+
+.list {
+  &-item {
+  }
+}
