@@ -18,4 +18,5 @@ export interface InitialStateType {
   news: NewsType;
   status: string;
   error?: string;
+  currentCountry: string;
 }

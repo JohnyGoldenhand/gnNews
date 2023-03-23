@@ -5,7 +5,7 @@ export const fetchCountries = createAsyncThunk(
   "countries/fetchCountries",
   async () => {
     const response = await axios.get(
-      "https://restcountries.com/v3.1/subregion/central%20europe?fields=flag,name"
+      "https://restcountries.com/v3.1/subregion/central%20europe?fields=flags,name,cca2"
     );
     return response.data;
   }

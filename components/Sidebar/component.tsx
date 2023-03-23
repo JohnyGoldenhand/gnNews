@@ -3,12 +3,19 @@ import { useState } from "react";
 import cn from "classnames";
 import { useSelector } from "react-redux";
 import { SelectCountries } from "@/store/countries/slice";
+import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { SelectNews, changeCurrentCountry } from "@/store/news/slice";
 
 export const Sidebar = () => {
   const [isWrapped, setIsWrapped] = useState<boolean>(false);
   const { countries } = useSelector(SelectCountries);
+  const { currentCountry } = useSelector(SelectNews);
+  const dispatch = useDispatch();
 
-  // cosnt [currentCountry, setCurrentCountry] = useState();
+  const handleChangeCountry = (code: string) => {
+    dispatch(changeCurrentCountry(code));
+  };
 
   return (
     <>
@@ -18,12 +25,27 @@ export const Sidebar = () => {
         })}
       >
         <ul className={styles["list"]}>
-          <li>Clear</li>
-          {countries.map((country: any) => (
-            <li className={styles["list-item"]}>
-              {country.name.common + country.flag}
-            </li>
-          ))}
+          {countries.map((country: any) => {
+            const { name } = country;
+            return (
+              <li
+                className={cn(styles["list-item"], {
+                  [styles["list-item__active"]]:
+                    country.cca2 === currentCountry.toUpperCase(),
+                })}
+                key={name.common}
+                onClick={() => handleChangeCountry(country.cca2)}
+              >
+                <h5> {name.common}</h5>
+                <Image
+                  src={country.flags.png.toString()}
+                  width={20}
+                  height={15}
+                  alt="flag"
+                />
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div>

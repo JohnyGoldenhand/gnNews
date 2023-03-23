@@ -4,7 +4,6 @@ import { SelectNews } from "../store/news/slice";
 import { useEffect } from "react";
 import { fetchNewsData } from "../store/news/thunk";
 import { fetchCountries } from "store/countries/thunk";
-import { SelectCountries } from "@/store/countries/slice";
 import { AppDispatch } from "store/store";
 import { Sidebar } from "components/Sidebar/component";
 import styles from "../styles/home.module.scss";
@@ -13,15 +12,15 @@ import { NewsFeed } from "@/components/NewsFeed/component";
 export default function Home() {
   const {
     news: { articles },
+    currentCountry,
   } = useSelector(SelectNews);
-  const { countries } = useSelector(SelectCountries);
 
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchNewsData("us"));
     dispatch(fetchCountries());
-  }, []);
+    dispatch(fetchNewsData());
+  }, [currentCountry]);
 
   return (
     <>

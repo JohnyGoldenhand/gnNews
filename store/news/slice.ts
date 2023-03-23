@@ -7,14 +7,15 @@ const initialState: InitialStateType = {
   news: {},
   status: "idle",
   error: "",
+  currentCountry: "pl",
 };
 
 export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    displayNews: (state) => {
-      return state;
+    changeCurrentCountry: (state, action) => {
+      state.currentCountry = action.payload;
     },
   },
   extraReducers(builder) {
@@ -34,5 +35,5 @@ export const newsSlice = createSlice({
 });
 
 export const SelectNews = (state: RootState) => state.news;
-export const { displayNews } = newsSlice.actions;
+export const { changeCurrentCountry } = newsSlice.actions;
 export default newsSlice.reducer;
