@@ -1,26 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { fetchCountries } from "./thunk";
+import { StateType } from "./types";
 
-export interface InitialStateType {
-  countries: any;
-  status: string;
-  error: string | undefined;
-}
-
-export const fetchCountries = createAsyncThunk(
-  "countries/fetchCountries",
-  async () => {
-    const response = await axios.get(
-      `https://restcountries.com/v3.1/subregion/central%20europe,western%20europe?fields=flag`
-    );
-    return response.data;
-  }
-);
-
-const initialState: InitialStateType = {
-  countries: {},
+const initialState: StateType = {
+  countries: [],
   status: "idle",
   error: "",
 };
@@ -41,6 +25,7 @@ export const countriesSlice = createSlice({
       .addCase(fetchCountries.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.countries = action.payload;
+        state.error = "";
       })
       .addCase(fetchCountries.rejected, (state, action) => {
         state.status = "failed";

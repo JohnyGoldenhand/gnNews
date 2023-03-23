@@ -1,17 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "store/store";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { fetchNewsData } from "./thunk";
 import { InitialStateType } from "./types";
-
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY_NEWS;
-
-export const fetchNewsData = createAsyncThunk("news/fetchNews", async () => {
-  const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
-  );
-  return response.data;
-});
 
 const initialState: InitialStateType = {
   news: {},

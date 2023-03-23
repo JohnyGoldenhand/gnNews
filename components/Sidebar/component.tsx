@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { useState } from "react";
 import cn from "classnames";
 import { useSelector } from "react-redux";
-import { SelectCountries } from "@/store/countries/countriesSlice";
+import { SelectCountries } from "@/store/countries/slice";
 
 export const Sidebar = () => {
   const [isWrapped, setIsWrapped] = useState<boolean>(false);
@@ -19,14 +19,11 @@ export const Sidebar = () => {
       >
         <ul className={styles["list"]}>
           <li>Clear</li>
-          {/* {countries.map((country: any) => (
-            <li>{country.flag}</li>
-          ))} */}
-          <li className={styles["list-item"]}>Poland</li>
-          <li className={styles["list-item"]}>Poland</li>
-          <li className={styles["list-item"]}>Poland</li>
-          <li className={styles["list-item"]}>Poland</li>
-          <li className={styles["list-item"]}>Poland</li>
+          {countries.map((country: any) => (
+            <li className={styles["list-item"]}>
+              {country.name.common + country.flag}
+            </li>
+          ))}
         </ul>
       </div>
       <div>

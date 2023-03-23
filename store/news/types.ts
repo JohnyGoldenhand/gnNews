@@ -17,5 +17,5 @@ export interface NewsType {
 export interface InitialStateType {
   news: NewsType;
   status: string;
-  error: string | undefined;
+  error?: string;
 }
