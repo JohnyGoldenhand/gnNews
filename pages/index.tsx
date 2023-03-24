@@ -7,7 +7,8 @@ import { fetchCountries } from "store/countries/thunk";
 import { AppDispatch } from "store/store";
 import { Sidebar } from "components/Sidebar/component";
 import styles from "../styles/home.module.scss";
-import { NewsFeed } from "@/components/NewsFeed/component";
+import { NewsFeed } from "components/NewsFeed/component";
+import { Footer } from "components/Footer/component";
 
 export default function Home() {
   const {
@@ -32,6 +33,7 @@ export default function Home() {
         <Sidebar />
         <NewsFeed articles={articles} />
       </div>
+      <Footer />
     </>
   );
 }

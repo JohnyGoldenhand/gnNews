@@ -1,0 +1,11 @@
+@import "styles/base.module.scss";
+
+.news-release-info {
+  display: flex;
+  justify-content: space-between;
+  width: 17rem;
+  background-color: $color_gray;
+  margin-bottom: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+}

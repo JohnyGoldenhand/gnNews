@@ -6,6 +6,7 @@ import { NewsCard } from "../NewsCard/component";
 
 export const NewsFeed: FC<NewsType> = (props) => {
   const { articles } = props;
+
   return (
     <div className={styles["news"]}>
       {articles?.map((article) => (

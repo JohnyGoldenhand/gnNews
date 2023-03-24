@@ -1,0 +1,11 @@
+@import "styles/base.module.scss";
+
+.footer {
+  height: 5rem;
+  background-color: $color_black;
+  width: 100%;
+  color: $color_white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

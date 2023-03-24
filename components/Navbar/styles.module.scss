@@ -15,17 +15,18 @@
   @include media__tablet {
     font-size: large;
   }
-  h1 {
-    padding: 1rem;
-    &:hover {
-      cursor: pointer;
-    }
-  }
+}
+
+.logo {
+  text-decoration: none;
+  color: $color_white;
+  cursor: pointer;
 }
 
 .menu {
   display: flex;
   gap: 2rem;
+  justify-content: space-around;
 
   font-size: small;
   &-item {
@@ -37,6 +38,15 @@
     @include media__tablet {
       font-size: large;
       padding-right: 3rem;
+    }
+
+    &__button {
+      background-color: $color_black;
+      color: $color_white;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: small;
     }
   }
 }
