@@ -3,6 +3,9 @@
   width: 8rem;
   height: 100vh;
   background-color: $color_secondary;
+  top: 4rem;
+  position: fixed;
+  z-index: $z-index_medium;
 
   @include media__tablet {
     width: 15rem;
@@ -25,6 +28,9 @@
   width: 3rem;
   background-color: $color_primary;
   color: $color_white;
+  z-index: $z-index_bold;
+  position: sticky;
+  top: 90%;
 }
 
 .list {
@@ -34,6 +40,7 @@
   flex-direction: column;
   align-items: center;
   margin-right: 1rem;
+  top: 4rem;
 
   &-item {
     padding: 1rem;

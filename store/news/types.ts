@@ -4,7 +4,7 @@ export interface ArticleType {
   title: string;
   description: string;
   url: string;
-  urlToImage: string;
+  urlToImage?: string;
   publisedAt: string;
 }
 
@@ -14,7 +14,7 @@ export interface NewsType {
   articles?: Array<ArticleType>;
 }
 
-export interface InitialStateType {
+export interface StateType {
   news: NewsType;
   status: string;
   error?: string;

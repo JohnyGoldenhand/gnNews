@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "store/store";
 import { fetchNewsData } from "./thunk";
-import { InitialStateType } from "./types";
+import { StateType } from "./types";
 
-const initialState: InitialStateType = {
+const initialState: StateType = {
   news: {},
   status: "idle",
   error: "",

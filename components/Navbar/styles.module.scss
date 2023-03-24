@@ -7,10 +7,11 @@
   display: flex;
   align-items: center;
   color: $color_white;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: small;
   position: sticky;
   top: 0;
+  z-index: $z-index_bold;
   @include media__tablet {
     font-size: large;
   }

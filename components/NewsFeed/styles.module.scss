@@ -1,0 +1,10 @@
+@import "styles/base.module.scss";
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @include media__tablet {
+    padding: 3rem;
+  }
+}
