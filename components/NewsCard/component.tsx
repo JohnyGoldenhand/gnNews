@@ -56,15 +56,17 @@ export const NewsCard: FC<NewsCardType> = ({ articleData }) => {
         articleData={articleData}
         setIsPreviewVisible={setIsPreviewVisible}
       />
-      {isNewsStyleList ? (
-        <NewsListItem articleData={articleData} />
-      ) : (
-        <NewsTile articleData={articleData} />
-      )}
-      <NewsReleaseInfo
-        author={articleData.author}
-        publishedAt={articleData.publisedAt}
-      />
+      <div>
+        {isNewsStyleList ? (
+          <NewsListItem articleData={articleData} />
+        ) : (
+          <NewsTile articleData={articleData} />
+        )}
+        <NewsReleaseInfo
+          author={articleData.author}
+          publishedAt={articleData.publisedAt}
+        />
+      </div>
     </>
   );
 };
