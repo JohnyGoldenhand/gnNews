@@ -1,4 +1,4 @@
-export interface countryType {
+export interface CountryType {
   flags: {
     png: string;
     svg: string;
@@ -7,11 +7,15 @@ export interface countryType {
   name: {
     common: string;
     official: string;
+    nativeName: {
+      [key: string]: { official: string; common: string };
+    };
   };
+  cca2: string;
 }
 
 export interface StateType {
-  countries: any;
+  countries: Array<CountryType>;
   status: string;
   error?: string;
 }
