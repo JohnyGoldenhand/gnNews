@@ -9,8 +9,8 @@ export const NewsFeed: FC<NewsType> = (props) => {
 
   return (
     <div className={styles["news"]}>
-      {articles?.map((article) => (
-        <NewsCard articleData={article} />
+      {articles?.map((article, id) => (
+        <NewsCard articleData={article} key={id} />
       ))}
     </div>
   );

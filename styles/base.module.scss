@@ -3,7 +3,8 @@ $color_black: #000000;
 $color_white: #f6f1f1;
 $color_primary: #19a7ce;
 $color_secondary: #146c94;
-$color_gray: #a0a0a0; //Media queries
+$color_gray: #a0a0a0;
+//Media queries
 @mixin media__tablet {
   @media (min-width: 961px) {
     @content;

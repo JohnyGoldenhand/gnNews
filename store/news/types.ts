@@ -6,6 +6,7 @@ export interface ArticleType {
   url: string;
   urlToImage?: string;
   publisedAt: string;
+  content: string;
 }
 
 export interface NewsType {
