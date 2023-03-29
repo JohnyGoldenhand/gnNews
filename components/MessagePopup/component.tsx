@@ -18,7 +18,7 @@ export const MessagePopup: FC<MessagePopupType> = ({
         onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()}
       >
         <div
-          className={styles["close"]}
+          className={styles["close-button"]}
           onClick={() => setIsPopupVisible(false)}
         >
           x

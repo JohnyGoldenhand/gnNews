@@ -3,7 +3,6 @@
   position: fixed;
   background-color: rgba($color: $color_black, $alpha: 0.7);
   inset: 0;
-  top: 4rem;
   left: 0;
   z-index: $z-index_medium;
   display: flex;
@@ -18,16 +17,16 @@
   background-color: $color_primary;
   padding: 2rem;
   position: absolute;
-  height: calc(100% - 4rem);
   overflow: scroll;
 
-  h3 {
+  &__title {
     text-align: center;
   }
+
   @include media__tablet {
-    max-width: 25rem;
+    max-width: 35rem;
     overflow: hidden;
-    max-height: 30rem;
+    max-height: 40rem;
   }
 }
 

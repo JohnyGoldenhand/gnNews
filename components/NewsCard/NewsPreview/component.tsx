@@ -11,6 +11,10 @@ export const NewsPreview: FC<ArticlePreviewType> = (props) => {
 
   if (!props.isPreviewVisible) return null;
 
+  const miniature = props.articleData.urlToImage
+    ? props.articleData.urlToImage.toString()
+    : Logo;
+
   return (
     <div
       className={styles["news-preview"]}
@@ -27,17 +31,9 @@ export const NewsPreview: FC<ArticlePreviewType> = (props) => {
           x
         </div>
 
-        <h3>{title}</h3>
+        <h3 className={styles['news-preview__title']}>{title}</h3>
         <div className={styles["miniature"]}>
-          <Image
-            src={
-              props.articleData.urlToImage
-                ? props.articleData.urlToImage.toString()
-                : Logo
-            }
-            fill
-            alt="miniature"
-          />
+          <Image src={miniature} fill alt="miniature" />
         </div>
         <div className={styles["article"]}>
           <div>{description}</div>

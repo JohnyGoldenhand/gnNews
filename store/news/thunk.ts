@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../store";
+import { useRouter } from "next/router";
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY_NEWS;
 

@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import { useState } from "react";
 import cn from "classnames";
 import { useSelector } from "react-redux";
 import { SelectCountries } from "@/store/countries/slice";
@@ -7,15 +6,20 @@ import Image from "next/image";
 import { useDispatch } from "react-redux";
 import { SelectNews, changeCurrentCountry } from "@/store/news/slice";
 import { SelectSidebar } from "@/store/sidebar/slice";
+import { useRouter } from "next/router";
 
 export const Sidebar = () => {
   const { countries } = useSelector(SelectCountries);
   const { currentCountry } = useSelector(SelectNews);
   const { isSidebarWrapped } = useSelector(SelectSidebar);
   const dispatch = useDispatch();
+  const router = useRouter();
+
+  const isHomepage = router.pathname === "/";
 
   const handleChangeCountry = (code: string) => {
     dispatch(changeCurrentCountry(code));
+    router.push(`/country/${code}`);
   };
 
   return (
@@ -32,7 +36,7 @@ export const Sidebar = () => {
               <li
                 className={cn(styles["list-item"], {
                   [styles["list-item__active"]]:
-                    country.cca2 === currentCountry.toUpperCase(),
+                    country.cca2 === currentCountry && !isHomepage,
                 })}
                 key={name.common}
                 onClick={() => handleChangeCountry(country.cca2)}

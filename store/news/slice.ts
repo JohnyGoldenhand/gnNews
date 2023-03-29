@@ -7,7 +7,7 @@ const initialState: StateType = {
   news: {},
   status: "idle",
   error: "",
-  currentCountry: "pl",
+  currentCountry: "",
 };
 
 export const newsSlice = createSlice({

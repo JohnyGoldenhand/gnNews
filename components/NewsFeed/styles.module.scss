@@ -5,6 +5,7 @@
   align-items: center;
   width: 100%;
   padding-top: 2rem;
+  min-height: 100vh;
   @include media__tablet {
     padding: 3rem;
     display: grid;
