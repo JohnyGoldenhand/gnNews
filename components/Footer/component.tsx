@@ -13,6 +13,7 @@ export const Footer = () => {
       <NoSsr>
         <Clock format={"HH:mm:ss"} ticking={true} />
       </NoSsr>
+      {}
       <p>posts on current page: {postsAmount}</p>
     </div>
   );

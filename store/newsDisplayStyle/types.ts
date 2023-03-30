@@ -1,3 +1,8 @@
+export enum NewsStyles {
+  tiles = "tiles",
+  list = "list",
+}
+
 export interface StateType {
-  isNewsStyleList: boolean;
+  newsStyle: NewsStyles;
 }

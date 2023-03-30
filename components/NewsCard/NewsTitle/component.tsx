@@ -3,18 +3,21 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import { truncateText } from "utils/truncateText";
 import { FC } from "react";
-import Logo from "public/vercel.svg";
 import { NewsCardType } from "../types";
+import NoImagePlaceholder from "public/images/noImagePlaceholder.svg";
 
 export const NewsTile: FC<NewsCardType> = ({
   articleData: { title, urlToImage, description },
   setIsPreviewVisible,
 }) => (
-  <div className={styles["card"]} onClick={() => setIsPreviewVisible(true)}>
+  <div
+    className={styles["card"]}
+    onClick={() => setIsPreviewVisible && setIsPreviewVisible(true)}
+  >
     <div className={cn(styles["card-content"])}>
       <div className={styles["card-image"]}>
         <Image
-          src={urlToImage ? urlToImage.toString() : Logo}
+          src={urlToImage ? urlToImage.toString() : NoImagePlaceholder}
           fill
           alt="miniature"
         />

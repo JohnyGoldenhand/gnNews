@@ -1,3 +1,6 @@
 .list-item {
-  width: 100%;
+  width: 90vw;
+  &:hover {
+    cursor: pointer;
+  }
 }

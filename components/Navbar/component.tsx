@@ -7,14 +7,29 @@ import { MessagePopup } from "../MessagePopup/component";
 import cn from "classnames";
 import {
   SelectNewsDisplayStyle,
-  changeStyleForList,
+  changeNewsStyle,
 } from "@/store/newsDisplayStyle/slice";
+import { NewsStyles } from "@/store/newsDisplayStyle/types";
+import SidecarIcon from "public/images/sidebar.svg";
+import MessageIcon from "public/images/messageIcon.svg";
+import ListIcon from "public/images/listStyle.svg";
+import TilesIcon from "public/images/squareStyles.svg";
+import Image from "next/image";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { isSidebarWrapped } = useSelector(SelectSidebar);
-  const { isNewsStyleList } = useSelector(SelectNewsDisplayStyle);
+  const { newsStyle } = useSelector(SelectNewsDisplayStyle);
   const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
+  const handleChangeNewsStyle = () => {
+    if (newsStyle === NewsStyles.list) {
+      dispatch(changeNewsStyle(NewsStyles.tiles));
+    } else {
+      dispatch(changeNewsStyle(NewsStyles.list));
+    }
+  };
+
+  const newsStyleImage = newsStyle === NewsStyles.list ? TilesIcon : ListIcon;
 
   return (
     <>
@@ -28,22 +43,22 @@ export const Navbar = () => {
         </Link>
         <div className={styles["menu"]}>
           <div
-            className={styles["menu-item"]}
-            onClick={() => dispatch(changeStyleForList(!isNewsStyleList))}
+            className={cn(styles["menu-item"], styles["menu-item__button"])}
+            onClick={handleChangeNewsStyle}
           >
-            change style
+            <Image src={newsStyleImage} fill alt="change style icon" />
           </div>
           <div
-            className={styles["menu-item"]}
+            className={cn(styles["menu-item"], styles["menu-item__button"])}
             onClick={() => setIsPopupVisible(true)}
           >
-            info
+            <Image src={MessageIcon} fill alt="message icon" />
           </div>
           <button
             className={cn(styles["menu-item"], styles["menu-item__button"])}
             onClick={() => dispatch(wrapSidebar(!isSidebarWrapped))}
           >
-            sidebar
+            <Image src={SidecarIcon} fill alt="sidebar icon" />
           </button>
         </div>
       </div>

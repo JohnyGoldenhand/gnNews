@@ -41,11 +41,13 @@
     }
 
     &__button {
-      background-color: $color_black;
-      color: $color_white;
+      position: relative;
+      width: 2rem;
+      height: 1.5rem;
       text-decoration: none;
       cursor: pointer;
       border: none;
+      background-color: $color_black;
     }
   }
 }

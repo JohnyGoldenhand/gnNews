@@ -1,0 +1,37 @@
+@import "styles/base.module.scss";
+
+.discover-news {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba($color: $color_black, $alpha: 0.6);
+  z-index: $z-index_light;
+  color: $color_white;
+  gap: 2rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+
+  &__title {
+    font-size: 1rem;
+  }
+
+  &__position {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    min-width: 10rem;
+    padding: 1rem;
+    &:hover {
+      background-color: $color_primary;
+      cursor: pointer;
+    }
+  }
+
+  &__flag {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+  }
+}

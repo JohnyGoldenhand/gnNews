@@ -4,7 +4,7 @@ import { ArticlePreviewType } from "./types";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "public/vercel.svg";
+import ImagePlaceholder from "public/images/noImagePlaceholder.svg";
 
 export const NewsPreview: FC<ArticlePreviewType> = (props) => {
   const { title, author, url, description } = props.articleData;
@@ -13,7 +13,7 @@ export const NewsPreview: FC<ArticlePreviewType> = (props) => {
 
   const miniature = props.articleData.urlToImage
     ? props.articleData.urlToImage.toString()
-    : Logo;
+    : ImagePlaceholder;
 
   return (
     <div
@@ -31,7 +31,7 @@ export const NewsPreview: FC<ArticlePreviewType> = (props) => {
           x
         </div>
 
-        <h3 className={styles['news-preview__title']}>{title}</h3>
+        <h3 className={styles["news-preview__title"]}>{title}</h3>
         <div className={styles["miniature"]}>
           <Image src={miniature} fill alt="miniature" />
         </div>

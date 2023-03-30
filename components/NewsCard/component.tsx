@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import styles from "./styles.module.scss";
 import { NewsTile } from "./NewsTitle/component";
 import { NewsReleaseInfo } from "../NewsReleaseInfo/component";
 
@@ -8,10 +7,11 @@ import { useSelector } from "react-redux";
 import { SelectNewsDisplayStyle } from "@/store/newsDisplayStyle/slice";
 import { NewsCardType } from "./types";
 import { NewsListItem } from "./NewsListItem/component";
+import { NewsStyles } from "@/store/newsDisplayStyle/types";
 
 export const NewsCard: FC<NewsCardType> = ({ articleData }) => {
   const [isPreviewVisible, setIsPreviewVisible] = useState<boolean>(false);
-  const { isNewsStyleList } = useSelector(SelectNewsDisplayStyle);
+  const { newsStyle } = useSelector(SelectNewsDisplayStyle);
 
   return (
     <>
@@ -21,7 +21,7 @@ export const NewsCard: FC<NewsCardType> = ({ articleData }) => {
         setIsPreviewVisible={setIsPreviewVisible}
       />
       <div>
-        {isNewsStyleList ? (
+        {newsStyle === NewsStyles.list ? (
           <NewsListItem
             articleData={articleData}
             setIsPreviewVisible={setIsPreviewVisible}
